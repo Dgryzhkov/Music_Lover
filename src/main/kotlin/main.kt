@@ -7,13 +7,13 @@ val purchase = 100_000.0
 
 fun main() {
 
-    val discount = when (purchase) {
+    var discount = when (purchase) {
         in 0.0..1000.0 -> DISCOUNT_ZERO
         in 1001.0..10_000.0 -> DISCOUNT_STANDART
         else -> (purchase - 10_000.0) * DISCOUNT_PERCENT + DISCOUNT_STANDART
     }
-    val discountMusicLover = if (musicLover) discount+discount*DISCOUNT_MUSIC_LOVER else
+    discount = if (musicLover) discount+discount*DISCOUNT_MUSIC_LOVER else
         discount
-println(" сумма покупки ${purchase.toInt()} руб, сумма скидки ${discountMusicLover.toInt()} руб")
+println(" сумма покупки ${purchase.toInt()} руб, сумма скидки ${discount.toInt()} руб")
 
 }
